@@ -1,0 +1,278 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/bndr/node-read"
+
+    >node-read (v0.1.7)</a>
+</h1>
+<h4>Get Clean Reading Content from every web page</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-read">module node-read</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-read.node-read">
+            function <span class="apidocSignatureSpan"></span>node-read
+            <span class="apidocSignatureSpan">(html, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-read.toString">
+            function <span class="apidocSignatureSpan">node-read.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-read.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-read.toString">module node-read.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-read.toString.toString">
+            function <span class="apidocSignatureSpan">node-read.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-read.utils">module node-read.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-read.utils.extract">
+            function <span class="apidocSignatureSpan">node-read.utils.</span>extract
+            <span class="apidocSignatureSpan">($, base, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-read" id="apidoc.module.node-read">module node-read</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-read.node-read" id="apidoc.element.node-read.node-read">
+        function <span class="apidocSignatureSpan"></span>node-read
+        <span class="apidocSignatureSpan">(html, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">node-read = function (html, options, callback) {
+  if (typeof options === &#x27;function&#x27;) {
+    callback = options;
+    options = {
+      considerDIVs: true,
+      nodesToRemove: &#x27;meta,iframe,noscript,style,aside,object,script&#x27;
+    };
+  }
+
+  if (!html.match(/^\s*&#x3c;/)) {
+    req(html, options, function(err, res, body) {
+      if (err) {
+        return callback(err);
+      }
+      parseDOM(body.toString(), url.parse(html));
+    });
+  } else {
+    parseDOM(html, null);
+  }
+
+  function parseDOM(html, url) {
+    if (!html) return callback(new Error(&#x27;Empty html&#x27;));
+    var $ = cheerio.load(html, {
+      normalizeWhitespace: true,
+      decodeEntities: false
+    });
+    if ($(&#x27;body&#x27;).length &#x3c; 1) return callback(new Error(&#x22;No body tag was found&#x22;));
+    return callback(null, new Article($, options, url), url);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-read.toString" id="apidoc.element.node-read.toString">
+        function <span class="apidocSignatureSpan">node-read.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (!html.match(/^\s*&#x3c;/)) {
+  req(html, options, function(err, res, body) {
+    if (err) {
+      return callback(err);
+    }
+    parseDOM(body.<span class="apidocCodeKeywordSpan">toString</span>(), url.parse(html));
+  });
+} else {
+  parseDOM(html, null);
+}
+
+function parseDOM(html, url) {
+  if (!html) return callback(new Error(&#x27;Empty html&#x27;));
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-read.toString" id="apidoc.module.node-read.toString">module node-read.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-read.toString.toString" id="apidoc.element.node-read.toString.toString">
+        function <span class="apidocSignatureSpan">node-read.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (!html.match(/^\s*&#x3c;/)) {
+  req(html, options, function(err, res, body) {
+    if (err) {
+      return callback(err);
+    }
+    parseDOM(body.<span class="apidocCodeKeywordSpan">toString</span>(), url.parse(html));
+  });
+} else {
+  parseDOM(html, null);
+}
+
+function parseDOM(html, url) {
+  if (!html) return callback(new Error(&#x27;Empty html&#x27;));
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-read.utils" id="apidoc.module.node-read.utils">module node-read.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-read.utils.extract" id="apidoc.element.node-read.utils.extract">
+        function <span class="apidocSignatureSpan">node-read.utils.</span>extract
+        <span class="apidocSignatureSpan">($, base, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extract = function ($, base, options) {
+  var candidates = getCandidates($, base, options);
+  article = getArticle(candidates, $, options);
+  if (article.length &#x3c; 1) {
+    article = getArticle([$(&#x27;body&#x27;)], $, options)
+  }
+  return article;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+}
+
+Article.prototype.getContent = function() {
+  if (typeof this.cache[&#x27;article-content&#x27;] !== &#x27;undefined&#x27;) {
+    return this.cache[&#x27;article-content&#x27;];
+  }
+  var content = utils.<span class="apidocCodeKeywordSpan">extract</span>(this.$, this.base, this.options).html();
+
+  return this.cache[&#x27;article-content&#x27;] = content;
+}
+
+// Better Article Title Extraction.
+// Author Zihua Li https://github.com/luin/node-readability
+Article.prototype.getTitle = function() {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
