@@ -72,29 +72,7 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.node-read.toString">
-            function <span class="apidocSignatureSpan">node-read.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-read.</span>utils</span>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.node-read.toString">module node-read.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.node-read.toString.toString">
-            function <span class="apidocSignatureSpan">node-read.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
 
         </li>
 
@@ -160,71 +138,6 @@
     </ul>
 
 
-
-    <h2>
-        <a href="#apidoc.element.node-read.toString" id="apidoc.element.node-read.toString">
-        function <span class="apidocSignatureSpan">node-read.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}
-
-if (!html.match(/^\s*&#x3c;/)) {
-  req(html, options, function(err, res, body) {
-    if (err) {
-      return callback(err);
-    }
-    parseDOM(body.<span class="apidocCodeKeywordSpan">toString</span>(), url.parse(html));
-  });
-} else {
-  parseDOM(html, null);
-}
-
-function parseDOM(html, url) {
-  if (!html) return callback(new Error(&#x27;Empty html&#x27;));
-...</pre></li>
-    </ul>
-
-
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.node-read.toString" id="apidoc.module.node-read.toString">module node-read.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.node-read.toString.toString" id="apidoc.element.node-read.toString.toString">
-        function <span class="apidocSignatureSpan">node-read.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}
-
-if (!html.match(/^\s*&#x3c;/)) {
-  req(html, options, function(err, res, body) {
-    if (err) {
-      return callback(err);
-    }
-    parseDOM(body.<span class="apidocCodeKeywordSpan">toString</span>(), url.parse(html));
-  });
-} else {
-  parseDOM(html, null);
-}
-
-function parseDOM(html, url) {
-  if (!html) return callback(new Error(&#x27;Empty html&#x27;));
-...</pre></li>
-    </ul>
 
 
 </div>
