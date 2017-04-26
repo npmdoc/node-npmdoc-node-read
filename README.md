@@ -1,4 +1,7 @@
-# api documentation for  [node-read (v0.1.7)](https://github.com/bndr/node-read)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-read.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-read) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-read.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-read)
+# npmdoc-node-read
+
+#### basic api documentation for  [node-read (v0.1.7)](https://github.com/bndr/node-read)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-read.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-read) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-read.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-read)
+
 #### Get Clean Reading Content from every web page
 
 [![NPM](https://nodei.co/npm/node-read.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-read)
@@ -68,7 +71,8 @@
     "scripts": {
         "test": "make test"
     },
-    "version": "0.1.7"
+    "version": "0.1.7",
+    "bin": {}
 }
 ```
 
